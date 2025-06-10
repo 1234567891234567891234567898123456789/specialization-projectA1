@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour
             }
         }
 
+
         // Active Instructions
         Instruction2D.SetActive(Player.CheckTwoDimensions());
         Instruction3D.SetActive(!Player.CheckTwoDimensions());
