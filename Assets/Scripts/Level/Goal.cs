@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+    [SerializeField] bool FinalGoal;
+    [SerializeField] string NextScene;
     private void OnTriggerEnter(Collider other)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level1");
+        if (FinalGoal)
+        {
+            MainManager.Instance.FinishGame();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Game End");
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene(NextScene);
     }
 }

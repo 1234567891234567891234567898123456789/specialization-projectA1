@@ -6,6 +6,7 @@ public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
     public int PlayerLives;
+    bool FinishedGame;
 
     private void Awake()
     {
@@ -20,6 +21,10 @@ public class MainManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        FinishedGame = false;
+    }
 
     public void LoseLive()
     {
@@ -33,7 +38,15 @@ public class MainManager : MonoBehaviour
 
     public void RestartGame()
     {
-        Data.FinishedGame = false;
+        FinishedGame = false;
         PlayerLives = 3;
+    }
+    public void FinishGame()
+    {
+        FinishedGame = true;
+    }
+    public bool GetGamePassed()
+    {
+        return FinishedGame;
     }
 }

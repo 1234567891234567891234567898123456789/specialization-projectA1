@@ -373,7 +373,6 @@
 "Assets/Scripts/Game Manager/MainManager.cs"
 "Assets/Scripts/Game Manager/SceneManager.cs"
 "Assets/Scripts/Game Manager/Sound.cs"
-"Assets/Scripts/Level/FinalGoal.cs"
 "Assets/Scripts/Level/Goal.cs"
 "Assets/Scripts/Level/JumpPad.cs"
 "Assets/Scripts/Player/Player Controller.cs"

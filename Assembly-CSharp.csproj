@@ -64,7 +64,6 @@
     <Compile Include="Assets\Scripts\Cursor.cs" />
     <Compile Include="Assets\Scripts\Level\Goal.cs" />
     <Compile Include="Assets\Scripts\Game Manager\Sound.cs" />
-    <Compile Include="Assets\Scripts\Level\FinalGoal.cs" />
     <Compile Include="Assets\Scripts\Game Manager\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Level\JumpPad.cs" />
     <Compile Include="Assets\Scripts\Data.cs" />

@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Data {
-    public static bool FinishedGame = false;
+    //public static bool FinishedGame = false;
 }
