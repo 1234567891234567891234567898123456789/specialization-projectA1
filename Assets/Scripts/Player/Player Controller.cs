@@ -83,14 +83,14 @@ public class PlayerController : MonoBehaviour
         Fall();
 
         #endregion
-
+        #region Animation Triggers
         _animator.SetBool("IsWalking", false);
 
         if (_inputActions["3DMove"].IsPressed())
             _animator.SetBool("IsWalking", true);
         if (_inputActions["2DMove"].IsPressed())
             _animator.SetBool("IsWalking", true);
-
+        #endregion
         SwitchCamera();
     }
     public void Fall()
