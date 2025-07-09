@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Level\Goal.cs" />
     <Compile Include="Assets\Scripts\Game Manager\Sound.cs" />
     <Compile Include="Assets\Scripts\Game Manager\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Level\Collectable.cs" />
     <Compile Include="Assets\Scripts\Level\JumpPad.cs" />
     <Compile Include="Assets\Scripts\Data.cs" />
     <Compile Include="Assets\Scripts\Game Manager\MainManager.cs" />

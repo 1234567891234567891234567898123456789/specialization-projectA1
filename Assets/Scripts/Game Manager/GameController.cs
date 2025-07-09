@@ -14,11 +14,16 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject PlayerObject;
     [SerializeField] GameObject Instruction2D, Instruction3D;
     [SerializeField] TMP_Text PlayerLives;
-
+    [SerializeField] Collectable[] _Collectables;
+    [SerializeField] GameObject Goal;
     Transform[] Platforms;
+
+    private int Collected;
     private void Start()
     {
         PlayerLives.text = "Lives: " + MainManager.Instance.GetLives();
+        Goal.SetActive(false);
+        Collected = 0;
     }
     private void Update()
     {
@@ -51,7 +56,7 @@ public class GameController : MonoBehaviour
                     if (Platforms[i].gameObject.layer == 6)
                     {
                         // If colliding with platform layer
-                        //PlayerObject.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, Platforms[i].transform.position.z);
+                        // PlayerObject.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, Platforms[i].transform.position.z);
                         Player.TeleportTwoD(Platforms[i].transform.position.z);
                         Debug.Log(Platforms[i]);
                     }
@@ -65,6 +70,19 @@ public class GameController : MonoBehaviour
         Instruction2D.SetActive(Player.CheckTwoDimensions());
         Instruction3D.SetActive(!Player.CheckTwoDimensions());
 
+        for (int i = 0;i<_Collectables.Length;i++)
+        {
+            if (_Collectables[i] != null)
+            {
+                Collected = 0;
+                break;
+            }
+            else
+                Collected++;
+        }
+        if (Collected == _Collectables.Length)
+            Goal.SetActive(true);
+
         // If player out of bounds
         if (PlayerObject.transform.position.y < -5)
             PlayerDie();
@@ -73,11 +91,6 @@ public class GameController : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("Game End");
 
 
-        // Testing purposes
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            Player.TeleportTwoD(5);
-        }
     }
 
     private void PlayerDie()
