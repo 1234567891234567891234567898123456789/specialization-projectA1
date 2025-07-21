@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AudioManager : MonoBehaviour
 {
-
     public static AudioManager Instance;
-    public Sound[] sfx;
+    public Sound[] sfx,bgm;
     public AudioSource bgmSource, sfxSource;
 
     private void Awake()
@@ -23,6 +23,26 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void Start()
+    {
+        bgmSource.volume = sfxSource.volume = 10;
+        PlayBGM("BackgroundMusic");
+    }
+    public void PlayBGM(string name)
+    {
+        Sound s = Array.Find(bgm, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound not found");
+        }
+        else
+        {
+            bgmSource.clip = s.clip;
+            bgmSource.Play();
+        }
+    }
+
 
     public void PlaySFX(string name)
     {
